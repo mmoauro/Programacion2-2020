@@ -1,0 +1,5 @@
+Tomar la red social Facebook y determinar qué objetos la componen y que
+comportamiento tiene cada uno. Tomar una versión reducida de los contenidos donde
+solo se contemplen los amigos, publicaciones y eventos simples.
+Consejo: Ver la agenda y la similitud existente entre ambos problemas.
+Extra: Si se desea modelar twitter, ¿Qué elementos son los que debieran cambiar?
