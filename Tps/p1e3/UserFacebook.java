@@ -23,7 +23,7 @@ public class UserFacebook {
 	public void printAmigos () {
 		// esto es una prueba
 		for (UserFacebook user : amigos) {
-			System.out.println(user.nombre + " - " + user.edad + " anios." + " - " + user.publicaciones[0].getContenido());
+			System.out.println(user.getNombre() + " - " + user.getEdad() + " anios." + " - " + user.publicaciones[0].getContenido());
 		}
 	}
 	
