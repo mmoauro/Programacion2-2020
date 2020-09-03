@@ -6,5 +6,6 @@ public class Main {
         PuntoGeometrico segundo = new PuntoGeometrico(3, 6);
         Rectangulo uno = new Rectangulo(primero, segundo);
         Rectangulo dos = new Rectangulo(primero, segundo);
+        System.out.println(primero.calcularDistanciaEuclidea(segundo));
     }
 }

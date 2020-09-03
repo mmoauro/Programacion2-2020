@@ -1,9 +1,12 @@
 package p3e1;
+
+import java.time.LocalDate;
+
 public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
-    private String fechaDeNacimieno;
+    private LocalDate fechaDeNacimieno;
     private boolean esHombre;
     private String dni;
     private int peso;
@@ -12,7 +15,7 @@ public class Persona {
     public Persona (String dni) {
         this.dni = dni;
         this.edad = 20;
-        this.fechaDeNacimieno = "1/1/2020";
+        this.fechaDeNacimieno = LocalDate.of(2000, 1, 1);
         this.esHombre = false;
         this.nombre = "n";
         this.apellido = "n";
@@ -24,12 +27,12 @@ public class Persona {
         this.apellido = apellido;
         this.dni = dni;
         this.edad = 20;
-        this.fechaDeNacimieno = "1/1/2020";
+        this.fechaDeNacimieno = LocalDate.of(2000, 1, 1);
         this.esHombre = false;
         this.peso = 1;
         this.altura = 1;
     }
-    public Persona (String nombre, String apellido, String dni, String fechaDeNacimieno, int edad, boolean esHombre, int peso, double altura) {
+    public Persona (String nombre, String apellido, String dni, LocalDate fechaDeNacimieno, int edad, boolean esHombre, int peso, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -65,7 +68,7 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void setFechaDeNacimieno(String fechaDeNacimieno) {
+    public void setFechaDeNacimieno(LocalDate fechaDeNacimieno) {
         this.fechaDeNacimieno = fechaDeNacimieno;
     }
 
@@ -92,5 +95,14 @@ public class Persona {
                 ", peso=" + peso +
                 ", altura=" + altura +
                 '}';
+    }
+    public void setFechaDeNacimiento (LocalDate fechaDeNacimieno) {
+        this.fechaDeNacimieno = fechaDeNacimieno;
+    }
+    public LocalDate getFechaDeNacimieno () {
+        return this.fechaDeNacimieno;
+    }
+    public boolean estaCumpliendoAnios () {
+        return this.getFechaDeNacimieno().getMonth() == LocalDate.now().getMonth() && this.getFechaDeNacimieno().getDayOfMonth() == LocalDate.now().getDayOfMonth();
     }
 }
