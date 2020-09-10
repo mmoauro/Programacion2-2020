@@ -1,9 +1,13 @@
 package p1e2;
+
+import java.util.ArrayList;
+
 public class Ciudad {
 	private String nombre;
 	private int poblacion;
 	private int imp1, imp2, imp3, imp4, imp5;
 	private int gasto;
+	private ArrayList<ContribuyenteSimple> contribuyentes;
 	
 	private int getRecaucacion () {
 		return imp1 + imp2 + imp3 + imp4 + imp5;
