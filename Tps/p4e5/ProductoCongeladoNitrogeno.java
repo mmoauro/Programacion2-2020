@@ -2,7 +2,7 @@ package p4e5;
 
 import java.time.LocalDate;
 
-public class ProductoCongeladoNitrogeno extends ProductoCongelado {
+public class ProductoCongeladoNitrogeno extends PoroductoRefrigeradoOCongelado {
     private String informacionMetodoCongelacion;
     private double tiempoExposicionNitrogeno; // En segundos
 

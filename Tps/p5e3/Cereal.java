@@ -17,12 +17,11 @@ public class Cereal {
         return this.minerales;
     }
     public boolean mePuedenSembrar (Lote lote) {
-        int j = 0;
         for (int i = 0; i < this.minerales.size(); i++) {
-            if (lote.getMinerales().contains(this.minerales.get(i))) {
-                j++;
+            if (!lote.contieneMineral(this.minerales.get(i))) {
+                return false;
             }
         }
-        return j == this.minerales.size();
+        return true;
     }
 }
