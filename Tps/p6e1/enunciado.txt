@@ -1,0 +1,35 @@
+Una consultora desea actualizar su sistema de gestión de posibles candidatos a diferentes
+puestos.
+
+La consultora guarda de cada candidato su nombre completo, empresa en la cual está
+trabajando y sueldo actual.
+
+La consultora se especializa en la asignación de contratos
+temporales y por tal motivo necesita conocer dado un contrato nuevo si sus candidatos
+pueden o no aceptarlo.
+
+Por ejemplo, hay candidatos que están contratados de forma exclusiva,
+con lo cual no pueden aceptar otro contrato, otros candidatos pueden aceptar el contrato si el
+mismo tiene hasta 8 hs semanales, otros pueden hasta 10 hs semanales, algunos candidatos no
+pueden aceptar contratos que sean de la misma empresa en la que trabajan, otros candidatos
+solo aceptan el contrato si el monto ofrecido es mayor igual que su sueldo.
+
+Estos son algunos ejemplos de criterios de aceptación de los candidatos, en el futuro se puede agregar nuevas
+formas e incluso esta forma se puede cambiar dinámicamente.
+
+De un contrato nuevo se guarda las horas de dedicación semanal, el monto ofrecido y la empresa para la cual
+desarrollarán las tareas.
+
+Implementar un servicio que dado un contrato le permita a la consultora obtener un
+listado de potenciales candidatos al mismo.
+
+
+
+
+Consultora - candidatos, contratos
+Candidato - nombre completo, empresa actual, sueldo, metodo abstracto para saber si puede aceptar el contrato.
+    CandidatoContratadoDeFormaExclusiva - No puede aceptar otro contrato.
+    CandidatoPorHorasSemanales - Horas semanales.
+    CandidatoNoPuedeAceptarContratoDeLaEmpresaQueTrabaja.
+    CandidatoDependeSueldo - Acepta si el sueldo del contrato es >= al actual
+Contrato - Horas semanales, sueldo, empresa.
