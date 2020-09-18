@@ -17,10 +17,10 @@ public class Consultora {
         this.candidatos.add(candidato);
     }
 
-    public ArrayList<Candidato> candidadosParaUnContrato (Contrato contrato) {
+    public ArrayList<Candidato> candidadosParaUnContrato (AceptaContrato formaAceptacion) {
         ArrayList<Candidato> candidatos = new ArrayList<>();
         for (Candidato candidato:this.candidatos) {
-            if (candidato.puedoAceptarContrato(contrato)) {
+            if (formaAceptacion.acepta(candidato)) {
                 candidatos.add(candidato);
             }
         }

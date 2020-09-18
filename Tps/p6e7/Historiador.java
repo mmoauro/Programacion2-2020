@@ -13,77 +13,14 @@ public class Historiador {
         this.documentos.add(documento);
     }
 
-    public ArrayList<Documento> getDocumentosPorTitulo (String titulo) {
+    public ArrayList<Documento> getDocumentosPorBusqueda (Busqueda busqueda) {
         ArrayList<Documento> copia = new ArrayList<>();
         for (Documento documento:this.documentos) {
-            if (documento.getTitulo() == titulo) {
+            if (busqueda.cumple(documento)) {
                 copia.add(documento);
             }
         }
         return copia;
     }
-
-    public ArrayList<Documento> getDocumentosPalabraEnTitulo (String palabra) {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (documento.getTitulo().contains(palabra)) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-    public ArrayList<Documento> getDocumentosPorPalabraClave (String palabra) {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (documento.getPalabrasClave().contains(palabra)) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-    public ArrayList<Documento> getDocumentosSiNoContienePalabraClave (String palabra) {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (!documento.getPalabrasClave().contains(palabra)) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-    public ArrayList<Documento> getDocumentosPorAutor (String autor) {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (documento.getAutores().contains(autor)) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-    public ArrayList<Documento> getDocumentosPorContenido (String palabra) {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (documento.getContenido().contains(palabra)) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-    public ArrayList<Documento> getDocumentosCOntenidoMayor20 () {
-        ArrayList<Documento> copia = new ArrayList<>();
-        for (Documento documento:this.documentos) {
-            if (documento.getContenido().length() > 20) {
-                copia.add(documento);
-            }
-        }
-        return copia;
-    }
-
-
-
 
 }

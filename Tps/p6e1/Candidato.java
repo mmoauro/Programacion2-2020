@@ -1,14 +1,16 @@
 package p6e1;
 
-public abstract class Candidato {
+public class Candidato {
     private String nombreCompleto;
     private double sueldo;
     private  String empresa;
+    private AceptaContrato acepta;
 
-    public Candidato (String nombreCompleto, double sueldo, String empresa) {
+    public Candidato (String nombreCompleto, double sueldo, String empresa, AceptaContrato acepta) {
         this.nombreCompleto = nombreCompleto;
         this.sueldo = sueldo;
         this.empresa = empresa;
+        this.acepta = acepta;
     }
 
     public String getNombreCompleto() {
@@ -31,6 +33,11 @@ public abstract class Candidato {
         this.empresa = empresa;
     }
 
-    public abstract boolean puedoAceptarContrato(Contrato contrato);
+    public boolean puedoAceptarContrato() {
+        return this.acepta.acepta(this);
+    }
+    public void cambiarAceptacion (AceptaContrato acepta) {
+        this.acepta = acepta;
+    }
 
 }

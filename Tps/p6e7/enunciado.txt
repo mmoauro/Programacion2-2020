@@ -10,7 +10,7 @@ colección de acuerdo a diferentes criterios, por ejemplo:
 a) Todos los documentos cuyo título sea exactamente igual a un título dado.
 b) Todos los documentos cuyo título contenga una palabra o frase dada.
 c) Todos los documentos que contengan una palabra clave dada.
-d) Todos los documentos que no contengan ninguna palabra clave.
+d) Todos los documentos que no contengan ninguna palabra clave. Hago una pregunta not, que es mas generica
 e) Todos los documentos de un autor determinado.
 f) Todos los documentos cuyo contenido tenga una palabra o frase dada.
 g) Todos los documentos cuyo contenido tenga al menos 20 palabras.
