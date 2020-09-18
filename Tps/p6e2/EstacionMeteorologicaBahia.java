@@ -4,11 +4,13 @@ public class EstacionMeteorologicaBahia extends EstacionMetereologica {
     double limiteVeloidadViento;
     double limiteLluviaRegistrada;
     double limiteHumedadPromedio;
+    int cantidadRegistros;
 
-    public EstacionMeteorologicaBahia(double limiteVeloidadViento, double limiteLluviaRegistrada, double limiteHumedadPromedio) {
+    public EstacionMeteorologicaBahia(double limiteVeloidadViento, double limiteLluviaRegistrada, double limiteHumedadPromedio, int cantidadRegistros) {
         this.limiteVeloidadViento = limiteVeloidadViento;
         this.limiteLluviaRegistrada = limiteLluviaRegistrada;
         this.limiteHumedadPromedio = limiteHumedadPromedio;
+        this.cantidadRegistros = cantidadRegistros;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class EstacionMeteorologicaBahia extends EstacionMetereologica {
         double promedioHumedad = 0;
         int i = 0;
 
-        while (i < this.getRegistros().size() && i < 9) {
+        while (i < this.getRegistros().size() && i < this.cantidadRegistros) {
             humedad+=this.getRegistros().get(i).getPorcentajeHumedad();
             i++;
         }
