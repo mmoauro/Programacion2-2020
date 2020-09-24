@@ -1,5 +1,5 @@
 1)
-Implementar en Java todo el código necesario para el funcionamiento de una alarma. La
+Implementar en Java tod el código necesario para el funcionamiento de una alarma. La
 alarma tiene tres variables que indican si: se rompió un vidrio, se abrió una puerta o ventana,
 se detectó un movimiento dentro del domicilio. Cuando se invoca al método comprobar() de
 la alarma, la misma chequea si alguna de sus variables indica que debe hacer sonar la señal
