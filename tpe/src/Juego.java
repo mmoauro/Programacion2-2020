@@ -12,79 +12,109 @@ public class Juego {
     }
 
     public void jugar () {
-        int rondasJugadas = 0;
         mazo.repartir(this.j1, this.j2);
-        // TODO: Empieza eligiendo el atributo el jugador 1. Despues, elige el atributo el que gane la ronda
-        // Mientras hayan rondas, y los dos jugadores tengan cartas
-            // Si es la primer ronda, elige el atributo el j1
-            // Obtengo el ganador de la ronda
-            // En cada ronda siguiente elige el atributo el ganador de la ultima ronda
-            // Mientras gane el j1, elige el j1
-            // Mientras gane el j2, elige el j2
+
+        int atr = this.j1.elegirAtributo();
+        Jugador ganador = null;
+        Jugador ultimoGanador = null;
+
+        int rondasJugadas = 0;
+
         while (rondasJugadas < this.cantRondas && this.j1.getCantidadCartas() > 0 && this.j2.getCantidadCartas() > 0) {
-            Jugador ganador = null;
-            int atr = 0;
-            if (cantRondas == 0) {
-                atr = j1.elegirAtributo();
-                Carta cartaJ1 = this.j1.getPrimerCarta();
-                Carta cartaJ2 = this.j2.getPrimerCarta();
-                ganador = this.getGanadorRonda(atr, cartaJ1, cartaJ2);
+            Carta c1 = this.j1.getPrimerCarta();
+            Carta c2 = this.j2.getPrimerCarta();
+
+            if (rondasJugadas == 0) { // Solo para la primer ronda
+                ganador = this.getGanador(atr, c1, c2);
+                this.actualizarCartas(ganador);
+                this.imprimirRonda(this.j1, ganador, atr, c1, c2);
+                ultimoGanador = ganador;
+                if (ganador == null) {
+                    ultimoGanador = this.j1;
+                }
+                rondasJugadas++;
+                continue;
             }
-            while (ganador.equals(this.j1)) {
-                atr = j1.elegirAtributo();
-                Carta cartaJ1 = this.j1.getPrimerCarta();
-                Carta cartaJ2 = this.j2.getPrimerCarta();
-                ganador = this.getGanadorRonda(atr, cartaJ1, cartaJ2);
-                this.cambiarEstadoCartasJugadores(ganador, cartaJ1, cartaJ2);
+
+            if (ganador != null) { // Si hay un ganador
+                atr = ganador.elegirAtributo();
+                ultimoGanador = ganador;
             }
-            while (ganador.equals(this.j2)) {
-                atr = j2.elegirAtributo();
-                Carta cartaJ1 = this.j1.getPrimerCarta();
-                Carta cartaJ2 = this.j2.getPrimerCarta();
-                ganador = this.getGanadorRonda(atr, cartaJ1, cartaJ2);
-                this.cambiarEstadoCartasJugadores(ganador, cartaJ1, cartaJ2);
+            else {
+                // Si empataron
+                atr = ultimoGanador.elegirAtributo();
             }
-            // Incrementar rondas jugadas
+            ganador = this.getGanador(atr, c1, c2);
+
+            this.actualizarCartas(ganador);
+            this.imprimirRonda(ultimoGanador, ganador, atr, c1, c2);
+            rondasJugadas++;
+        }
+        this.imprimirGanador(rondasJugadas);
+
+    }
+
+    public Jugador getGanador (int atr, Carta c1, Carta c2) {
+        // El atributo es una posicion en el arreglo de atributos de las cartas de los jugadores.
+        if (c1.getAtributo(atr).getValor() > c2.getAtributo(atr).getValor()) {
+            return this.j1;
+        }
+        else if (c1.getAtributo(atr).getValor() < c2.getAtributo(atr).getValor()) {
+            return this.j2;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public void actualizarCartas (Jugador ganador) {
+        if (ganador != null) {
+            if (ganador.equals(this.j1)) {
+                this.j1.addCarta(this.j1.getPrimerCarta());
+                this.j1.addCarta(this.j2.getPrimerCarta());
+                this.j1.removePrimerCarta();
+                this.j2.removePrimerCarta();
+            }
+            else if (ganador.equals(this.j2)) {
+                this.j2.addCarta(this.j2.getPrimerCarta());
+                this.j2.addCarta(this.j1.getPrimerCarta());
+                this.j2.removePrimerCarta();
+                this.j1.removePrimerCarta();
+            }
+        }
+        else {
+            this.j1.addCarta(this.j1.getPrimerCarta());
+            this.j1.removePrimerCarta();
+            this.j2.addCarta(this.j2.getPrimerCarta());
+            this.j2.removePrimerCarta();
+        }
+    }
+
+    public void imprimirRonda (Jugador eligioCarta, Jugador ganador, int atr, Carta c1, Carta c2) {
+        System.out.println("El jugador " + eligioCarta.getNombre() +" eligio el atributo " + eligioCarta.getPrimerCarta().getAtributo(atr).getNombre());
+        System.out.println("La carta de " + this.j1.getNombre() + " es " + c1.getNombrePersonaje() + ", y el valor es: " + c1.getAtributo(atr).getValor());
+        System.out.println("La carta de " + this.j2.getNombre() + " es " + c2.getNombrePersonaje() + ", y el valor es: " + c2.getAtributo(atr).getValor());
+        System.out.println(this.j1.getNombre() + " tiene " + this.j1.getCantidadCartas() + " cartas.");
+        System.out.println(this.j2.getNombre() + " tiene " + this.j2.getCantidadCartas() + " cartas.");
+        if (ganador != null) {
+            System.out.println("-------------------------- Gano la ronda "+ganador.getNombre()+" ---------------------------");
+        }
+        else {
+            System.out.println("-------------------------- Empate ---------------------------");
+        }
+    }
+
+    public void imprimirGanador (int rondasJugadas) {
+        if (this.j1.getCantidadCartas() > this.j2.getCantidadCartas()) {
+            System.out.println("Gano " + this.j1.getNombre());
+        }
+        else if (this.j1.getCantidadCartas() < this.j2.getCantidadCartas()) {
+            System.out.println("Gano " + this.j2.getNombre());
+        }
+        else {
+            System.out.println("Empate");
         }
 
     }
-    public Jugador getGanadorRonda (int atr, Carta cartaj1, Carta cartaj2) {
-        for (int i = 0; i < cartaj1.getPersonaje().getAtributos().size(); i++) {
-            if (cartaj1.getPersonaje().getAtributos().get(i).getNumero() == atr) {
-                if (cartaj1.getPersonaje().getAtributos().get(i).getValor() > cartaj2.getPersonaje().getAtributos().get(i).getValor()) {
-                    return j1; // Gana jugador 1
-                }
-                else if (cartaj1.getPersonaje().getAtributos().get(i).getValor() < cartaj2.getPersonaje().getAtributos().get(i).getValor()) {
-                    return j2; // Gana jugador 2
-                }
-                else {
-                    return null; // Empatan
-                }
-            }
-        }
-        return null;
-    }
-    public void cambiarEstadoCartasJugadores (Jugador j, Carta c1, Carta c2) {
-        // Recibe el jugador que gano la ronda.
-        // c1 es la carta del jugador 1
-        // c2 es la carta del jugador 2
-        if (j.equals(this.j1)) {
-            j1.removePrimerCarta();
-            j1.addCarta(c1);
-            j1.addCarta(c2);
-            j2.removePrimerCarta();
-        }
-        else if (j.equals(this.j2)) {
-            j2.removePrimerCarta();
-            j2.addCarta(c1);
-            j2.addCarta(c2);
-            j1.removePrimerCarta();
-        }
-        else {
-            j1.removePrimerCarta();
-            j1.addCarta(c1);
-            j2.removePrimerCarta();
-            j2.addCarta(c2);
-        }
-    }
+
 }

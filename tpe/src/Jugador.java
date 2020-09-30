@@ -28,6 +28,8 @@ public class Jugador {
         this.cartas.remove(0);
     }
     public int elegirAtributo () {
-        return (int) (Math.random()*Atributo.getCantAtributos())+1;
+        return (int) (Math.random()*this.cartas.get(0).getAtributos().size());
+        // Devuelve algun atributo
+        // carta.getAtributo(ATRIBUTO).valor. Para j1 y j2.
     }
 }

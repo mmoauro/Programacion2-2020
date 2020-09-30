@@ -1,0 +1,2 @@
+Abstraer el comportamiento en común de los ejercicios 4 y 5 e implementar la solución.
+Implementar como quedaron las dos versiones
