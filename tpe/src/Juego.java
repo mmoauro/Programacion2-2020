@@ -50,7 +50,7 @@ public class Juego {
             this.imprimirRonda(ultimoGanador, ganador, atr, c1, c2);
             rondasJugadas++;
         }
-        this.imprimirGanador(rondasJugadas);
+        this.imprimirGanador();
 
     }
 
@@ -68,24 +68,26 @@ public class Juego {
     }
 
     public void actualizarCartas (Jugador ganador) {
+        Carta primerCartaJ1 = this.j1.getPrimerCarta();
+        Carta primerCartaJ2 = this.j2.getPrimerCarta();
         if (ganador != null) {
             if (ganador.equals(this.j1)) {
-                this.j1.addCarta(this.j1.getPrimerCarta());
-                this.j1.addCarta(this.j2.getPrimerCarta());
+                this.j1.addCarta(primerCartaJ1);
+                this.j1.addCarta(primerCartaJ2);
                 this.j1.removePrimerCarta();
                 this.j2.removePrimerCarta();
             }
             else if (ganador.equals(this.j2)) {
-                this.j2.addCarta(this.j2.getPrimerCarta());
-                this.j2.addCarta(this.j1.getPrimerCarta());
+                this.j2.addCarta(primerCartaJ2);
+                this.j2.addCarta(primerCartaJ1);
                 this.j2.removePrimerCarta();
                 this.j1.removePrimerCarta();
             }
         }
         else {
-            this.j1.addCarta(this.j1.getPrimerCarta());
+            this.j1.addCarta(primerCartaJ1);
             this.j1.removePrimerCarta();
-            this.j2.addCarta(this.j2.getPrimerCarta());
+            this.j2.addCarta(primerCartaJ2);
             this.j2.removePrimerCarta();
         }
     }
@@ -104,7 +106,7 @@ public class Juego {
         }
     }
 
-    public void imprimirGanador (int rondasJugadas) {
+    public void imprimirGanador () {
         if (this.j1.getCantidadCartas() > this.j2.getCantidadCartas()) {
             System.out.println("Gano " + this.j1.getNombre());
         }
