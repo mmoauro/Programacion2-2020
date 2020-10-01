@@ -27,7 +27,7 @@ public class Juego {
             if (rondasJugadas == 0) { // Solo para la primer ronda
                 ganador = this.getGanador(atr, c1, c2);
                 this.actualizarCartas(ganador);
-                this.imprimirRonda(this.j1, ganador, atr, c1, c2);
+                this.imprimirRonda(rondasJugadas, this.j1, ganador, atr, c1, c2);
                 ultimoGanador = ganador;
                 if (ganador == null) {
                     ultimoGanador = this.j1;
@@ -47,7 +47,7 @@ public class Juego {
             ganador = this.getGanador(atr, c1, c2);
 
             this.actualizarCartas(ganador);
-            this.imprimirRonda(ultimoGanador, ganador, atr, c1, c2);
+            this.imprimirRonda(rondasJugadas, ultimoGanador, ganador, atr, c1, c2);
             rondasJugadas++;
         }
         this.imprimirGanador();
@@ -92,7 +92,8 @@ public class Juego {
         }
     }
 
-    public void imprimirRonda (Jugador eligioCarta, Jugador ganador, int atr, Carta c1, Carta c2) {
+    public void imprimirRonda (int nRonda, Jugador eligioCarta, Jugador ganador, int atr, Carta c1, Carta c2) {
+        System.out.println("Ronda: " + (nRonda + 1));
         System.out.println("El jugador " + eligioCarta.getNombre() +" eligio el atributo " + eligioCarta.getPrimerCarta().getAtributo(atr).getNombre());
         System.out.println("La carta de " + this.j1.getNombre() + " es " + c1.getNombrePersonaje() + ", y el valor es: " + c1.getAtributo(atr).getValor());
         System.out.println("La carta de " + this.j2.getNombre() + " es " + c2.getNombrePersonaje() + ", y el valor es: " + c2.getAtributo(atr).getValor());
