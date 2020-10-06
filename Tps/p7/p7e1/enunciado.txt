@@ -1,0 +1,15 @@
+Un diccionario almacena una lista de palabras, ordenadas alfabéticamente.
+
+Cada palabra del diccionario posee la función gramatical que cumple la palabra
+(sustantivo, adverbio, adjetivo, etc), una o más definiciones, una lista de sinónimos y una lista de antónimos.
+
+Implementar en Java una solución que permita:
+● Agregar, modificar y eliminar palabras del diccionario.
+● Dada una palabra, obtener la lista de sinónimos, ordenada ascendentemente
+● Dada una palabra, obtener la lista de antónimos, ordenada ascendentemente
+● Dada una palabra, obtener la lista de definiciones
+● Dadas dos palabras, obtener la lista de palabras comprendidas entre ellas, en orden
+alfabético.
+
+Diccionario - Palabras, Busqueda
+Palabra (Implementa Comparable): String palabra, String funcionGramatical, AL<String>definiciones, AL<Palabra> sinonimos, AL<Palabra> antonimos, compareTo

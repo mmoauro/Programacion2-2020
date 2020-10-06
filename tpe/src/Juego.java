@@ -26,7 +26,7 @@ public class Juego {
 
             if (rondasJugadas == 0) { // Solo para la primer ronda
                 ganador = this.getGanador(atr, c1, c2);
-                this.actualizarCartas(ganador);
+                this.actualizarCartas(ganador, c1, c2);
                 this.imprimirRonda(rondasJugadas, this.j1, ganador, atr, c1, c2);
                 ultimoGanador = ganador;
                 if (ganador == null) {
@@ -46,7 +46,7 @@ public class Juego {
             }
             ganador = this.getGanador(atr, c1, c2);
 
-            this.actualizarCartas(ganador);
+            this.actualizarCartas(ganador, c1, c2);
             this.imprimirRonda(rondasJugadas, ultimoGanador, ganador, atr, c1, c2);
             rondasJugadas++;
         }
@@ -67,9 +67,7 @@ public class Juego {
         }
     }
 
-    public void actualizarCartas (Jugador ganador) {
-        Carta primerCartaJ1 = this.j1.getPrimerCarta();
-        Carta primerCartaJ2 = this.j2.getPrimerCarta();
+    public void actualizarCartas (Jugador ganador,Carta primerCartaJ1,Carta primerCartaJ2 ) {
         if (ganador != null) {
             if (ganador.equals(this.j1)) {
                 this.j1.addCarta(primerCartaJ1);
