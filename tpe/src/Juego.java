@@ -12,6 +12,7 @@ public class Juego {
     }
 
     public void jugar () {
+        mazo.mezclarCartas();
         mazo.repartir(this.j1, this.j2);
 
         int atr = this.j1.elegirAtributo();

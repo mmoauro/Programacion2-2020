@@ -7,7 +7,7 @@ public class Main {
         Mazo m1 = new Mazo();
         m1.cargarMazo(mazoPath);
 
-        Juego juego = new Juego(m1, j1, j2, 10);
+        Juego juego = new Juego(m1, j1, j2, 20);
         juego.jugar();
 
     }

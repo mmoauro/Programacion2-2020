@@ -1,0 +1,46 @@
+Dado el siguiente problema, defina las clases para implementar en java una solución
+orientada a objetos para el siguiente problema:
+
+
+Una plataforma de streaming de video permite a sus usuarios
+consultar su catálogo de películas disponibles.
+
+De cada película se guarda el título, la sinopsis, los géneros (“acción”, “terror”, “drama”,
+etc), el director, los actores, el año de estreno, la duración de la
+película (en minutos), y la edad mínima requerida para ver la
+película.
+
+
+La plataforma debe permitir al usuario realizar búsquedas de
+películas según diversos criterios, por ejemplo:
+
+
+● Buscar todas las películas que en el título contenga la palabra “luna”.
+● Buscar todas las películas que contengan un género específico (por ejemplo, “terror”).
+● Buscar todas las películas en las que haya actuado Will Smith y cuyo director NO haya
+sido Martin Scorsese.
+● Buscar todas las películas que se hayan grabado antes del 2015 y cuya duración sea
+menor a 95 minutos.
+
+
+A su vez, dado que algunas películas son más exitosase que otras, a la hora de analizar si
+adquirir la licencia de una nueva película, la plataforma analiza si la película resultará rentable
+o no.
+
+Una película será rentable si cumple con ciertos criterios que hace que los usuarios
+prefieran verla. Por ejemplo, el CEO de la plataforma observó que los usuarios suelen ver:
+
+● Películas cuya duración sea menor a 120 minutos, que no sean del género “comedia”.
+● Películas posteriores del 2017, a no ser que se trate de películas del género “infantil” o
+“documental”.
+
+Dado que las preferencias de los clientes cambian con el tiempo, el CEO de la plataforma de
+streaming desea poder cambiar en tiempo de ejecución las políticas de adquisición de
+licencias de películas en caso de ser necesario.
+
+Se debe proveer los siguientes servicios:
+● Proveer un servicio de búsqueda que permita a los clientes obtener el listado de
+películas que cumpla con sus preferencias.
+● Proveer un servicio que le permita a la plataforma determinar si una película resultará
+rentable o no.
+Tener en cuenta los conceptos básicos de programación orientada a objetos vistos en clase

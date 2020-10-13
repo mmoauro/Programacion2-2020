@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Mazo {
     private ArrayList<Carta> cartas;
@@ -54,6 +55,10 @@ public class Mazo {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void mezclarCartas () {
+        Collections.shuffle(this.cartas);
     }
 
     public void repartir (Jugador j1, Jugador j2) {
