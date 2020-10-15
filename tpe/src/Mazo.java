@@ -72,4 +72,18 @@ public class Mazo {
         }
         // El mazo se vacia?
     }
+
+    public Carta getPrimerCarta () {
+        if (this.cartas.size() > 0) {
+            return this.cartas.get(0);
+        }
+        return null;
+    }
+
+    public int getCantidadCartas () {
+        return this.cartas.size();
+    }
+    public void removePrimerCarta () {
+        this.cartas.remove(0);
+    }
 }

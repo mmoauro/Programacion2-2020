@@ -2,33 +2,30 @@ import java.util.ArrayList;
 
 public class Jugador {
     private String nombre;
-    private ArrayList<Carta> cartas;
+    private Mazo mazo;
 
     public Jugador (String nombre) {
         this.nombre = nombre;
-        this.cartas = new ArrayList<>();
+        this.mazo = new Mazo();
     }
 
     public int getCantidadCartas () {
-        return this.cartas.size();
+        return this.mazo.getCantidadCartas();
     }
     public String getNombre () {
         return this.nombre;
     }
     public void addCarta (Carta carta) {
-        this.cartas.add(carta);
+        this.mazo.addCarta(carta);
     }
     public Carta getPrimerCarta () {
-        if (this.cartas.size() > 0) {
-            return this.cartas.get(0);
-        }
-        return null;
+        return mazo.getPrimerCarta();
     }
     public void removePrimerCarta () {
-        this.cartas.remove(0);
+        this.mazo.removePrimerCarta();
     }
     public int elegirAtributo () {
-        return (int) (Math.random()*this.cartas.get(0).getAtributos().size());
+        return (int) (Math.random()*this.mazo.getPrimerCarta().getAtributos().size());
         // Devuelve algun atributo
         // carta.getAtributo(este metodo).valor. Para j1 y j2.
     }
