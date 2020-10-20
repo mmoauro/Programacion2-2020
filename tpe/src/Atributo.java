@@ -17,6 +17,10 @@ public class Atributo {
         return this.valor;
     }
 
+    public void setValor (double valor) {
+        this.valor = valor;
+    }
+
     public boolean equals (Object o) {
         try {
             Atributo nuevo = (Atributo) o;

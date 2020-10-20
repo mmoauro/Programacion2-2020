@@ -1,18 +1,35 @@
+import java.util.ArrayList;
+
 public class Juego {
     private Mazo mazo;
     private Jugador j1;
     private Jugador j2;
     private int cantRondas;
+    private ArrayList<Pocima> pocimas;
 
     public Juego (Mazo mazo, Jugador j1, Jugador j2, int cantRondas) {
         this.mazo = mazo;
         this.j1 = j1;
         this.j2 = j2;
         this.cantRondas = cantRondas;
+        this.pocimas = new ArrayList<>();
+    }
+
+    public void addPocima (Pocima pocima) {
+        // Interpreto que se pueden repetir las pocimas en el arreglo.
+        this.pocimas.add(pocima);
+    }
+
+    private void aplicarPocimas () {
+        for (Pocima pocima:this.pocimas) {
+            int random = (int) Math.random() * this.mazo.getCantidadCartas();
+            pocima.cambairValores(this.mazo.getCarta(random));
+        }
     }
 
     public void jugar () {
         mazo.mezclarCartas();
+        this.aplicarPocimas();
         mazo.repartir(this.j1, this.j2);
 
         int atr = this.j1.elegirAtributo();
@@ -107,16 +124,14 @@ public class Juego {
     }
 
     public void imprimirGanador () {
-        if (this.j1.getCantidadCartas() > this.j2.getCantidadCartas()) {
+        if (this.j1.getCantidadCartas() > this.j2.getCantidadCartas())
             System.out.println("Gano " + this.j1.getNombre());
-        }
-        else if (this.j1.getCantidadCartas() < this.j2.getCantidadCartas()) {
-            System.out.println("Gano " + this.j2.getNombre());
-        }
-        else {
-            System.out.println("Empate");
-        }
 
+        else if (this.j1.getCantidadCartas() < this.j2.getCantidadCartas())
+            System.out.println("Gano " + this.j2.getNombre());
+
+        else
+            System.out.println("Empate");
     }
 
 }

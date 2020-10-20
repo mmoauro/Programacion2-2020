@@ -21,6 +21,9 @@ public class Carta {
         }
         return null;
     }
+    public int getCantidadAtributos () {
+        return this.atributos.size();
+    }
     public void addAtributo (Atributo atr) {
         this.atributos.add(atr);
     }

@@ -6,8 +6,9 @@ public class Main {
         String mazoPath = "tpe/superheroes.json";
         Mazo m1 = new Mazo();
         m1.cargarMazo(mazoPath);
+        j1.setEstrategia(new EstrategiaAmbicioso());
 
-        Juego juego = new Juego(m1, j1, j2, 20);
+        Juego juego = new Juego(m1, j1, j2, 10);
         juego.jugar();
 
     }

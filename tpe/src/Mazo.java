@@ -80,6 +80,10 @@ public class Mazo {
         return null;
     }
 
+    public Carta getCarta (int index) {
+        return this.cartas.get(index);
+    }
+
     public int getCantidadCartas () {
         return this.cartas.size();
     }
