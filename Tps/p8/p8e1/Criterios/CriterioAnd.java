@@ -1,6 +1,6 @@
-package p8e1.Criterios;
+package p8.p8e1.Criterios;
 
-import p8e1.ElementoSA;
+import p8.p8e1.ElementoSA;
 
 public class CriterioAnd implements Criterio{
     private Criterio c1;

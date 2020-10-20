@@ -1,0 +1,45 @@
+Un sistema de recuento automático de votos para una elección registra los votos recibidos por
+los diferentes candidatos.
+
+Los candidatos poseen un nombre, un partido político y una
+agrupación.
+
+Cada votante registra su voto en una mesa.
+
+Cada mesa tiene asociado un conjunto de personas
+que pueden votar en la misma (padrón), identificadas únicamente por su DNI.
+
+Las mesas se
+encuentran distribuidas en diferentes establecimientos educativos, que a su vez se agrupan
+por barrio y localidad.
+
+Adicionalmente, puede haber mesas especiales que no pertenezcan a
+un establecimiento educativo sino al barrio o localidad directamente.
+
+
+Cuando un votante se presenta a emitir su voto, se debe controlar que el mismo se encuentre
+en el padrón correspondiente. Si se cumple esta condición, se registra el voto de la persona,
+que puede contener una referencia a un candidato o ser un voto en blanco (sin referencia a
+ningún candidato). Adicionalmente el voto guarda la hora en que se emitió el mismo (el
+momento en el que se crea el voto).
+
+
+Nota: Todos los votos emitidos se guardan en la mesa, aunque sean en blanco (es decir,
+siempre existe el voto, es lo mismo que sucede con un sobre en una elección real)
+
+
+Implementar los siguientes servicios:
+1. Dada una mesa, un establecimiento educativo, un barrio o una localidad, conocer el
+porcentaje de votos recibidos por un candidato particular.
+2. Dada una mesa, un establecimiento educativo, un barrio o una localidad, conocer el
+porcentaje de votos en blanco recibidos.
+3. Dada una mesa, un establecimiento educativo, un barrio o una localidad, conocer el
+porcentaje de votos que se emitieron entre las 10:00 y las 11:00. (La clase LocalDate
+implementa la interface Comparable)
+4. Dada una mesa, un establecimiento educativo, un barrio o una localidad, conocer la
+cantidad total de votos que se emitieron.
+5. Obtener un listado de todos los candidatos que se presentan a la elección, por partido
+político, agrupación y nombre, en ese orden.
+Aclaración, los porcentajes se calculan como la cantidad de votos que cumplen la condición
+dividido el total de votos emitidos en la mesa, establecimiento, barrio o localidad
+multiplicado por 100.

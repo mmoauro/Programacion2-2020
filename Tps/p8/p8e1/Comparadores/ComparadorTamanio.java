@@ -1,6 +1,6 @@
-package p8e1.Comparadores;
+package p8.p8e1.Comparadores;
 
-import p8e1.ElementoSA;
+import p8.p8e1.ElementoSA;
 
 import java.util.Comparator;
 

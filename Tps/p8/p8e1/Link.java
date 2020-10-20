@@ -1,6 +1,6 @@
-package p8e1;
+package p8.p8e1;
 
-import p8e1.Criterios.Criterio;
+import p8.p8e1.Criterios.Criterio;
 
 import java.util.ArrayList;
 
