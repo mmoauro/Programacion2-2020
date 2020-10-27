@@ -2,7 +2,7 @@ package p8.p8e2;
 
 import java.util.ArrayList;
 
-public class Mesa {
+public class Mesa extends ElementoSistemaElectoral {
     private ArrayList<Persona> padron;
     private ArrayList<Voto> votos;
 

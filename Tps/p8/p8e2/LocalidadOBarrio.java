@@ -2,11 +2,11 @@ package p8.p8e2;
 
 import java.util.ArrayList;
 
-public class Barrio {
+public class LocalidadOBarrio extends ElementoSistemaElectoral {
     private String nombre;
     private ArrayList<LugarVotable> lugaresVotables;
 
-    public Barrio (String nombre) {
+    public LocalidadOBarrio(String nombre) {
         this.nombre = nombre;
         this.lugaresVotables = new ArrayList<>();
     }

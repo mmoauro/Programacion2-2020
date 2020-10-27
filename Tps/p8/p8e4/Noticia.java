@@ -1,46 +1,57 @@
 package p8.p8e4;
 
+import p8.p8e4.Criterios.Criterio;
+
 import java.util.ArrayList;
 
-public class Noticia {
-    private String titulo;
+public class Noticia extends ElementoSitio {
     private ArrayList<String> palabrasClave;
+    private String introduccion;
     private String texto;
-    private String link;
     private String autor;
+    private String link;
 
-    public Noticia (String titulo, String texto, String autor) {
-        this.titulo = titulo;
+    public Noticia (String nombre, String introduccion, String texto, String autor, String link) {
+        super(nombre);
+        this.introduccion = introduccion;
         this.texto = texto;
         this.autor = autor;
+        this.link = link;
         this.palabrasClave = new ArrayList<>();
     }
 
-    public void addPalabraClave (String palabra) {
-        this.palabrasClave.add(palabra);
+    @Override
+    public int getCantidadNoticias() {
+        return 1;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    @Override
+    public String getUbicacion() {
+        return this.getPadre().getUbicacion() + this.link;
     }
 
-    public String getTitulo() {
-        return titulo;
+    @Override
+    public ArrayList<ElementoSitio> getNoticiasCriterio(Criterio criterio) {
+        ArrayList<ElementoSitio> retorno = new ArrayList<>();
+        if (criterio.cumple(this))
+            retorno.add(this);
+        return retorno;
     }
 
-    public ArrayList<String> getPalabrasClave() {
-        return (ArrayList) this.palabrasClave.clone();
+    public String toString () {
+        return this.getNombre();
     }
 
-    public String getTexto() {
-        return texto;
+    public String getAutor () {
+        return this.autor;
     }
 
-    public String getLink() {
-        return link;
+    public boolean tienePalabraClave (String palabra) {
+        return this.palabrasClave.contains(palabra);
     }
 
-    public String getAutor() {
-        return autor;
+    public int getLargoTexto () {
+        return this.texto.length();
     }
+
 }
