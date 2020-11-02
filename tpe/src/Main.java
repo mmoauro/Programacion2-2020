@@ -9,6 +9,12 @@ public class Main {
         j1.setEstrategia(new EstrategiaAmbicioso());
 
         Juego juego = new Juego(m1, j1, j2, 10);
+
+        Pocima p1 = new PocimaFortalecedora("Pocima fortalecedora", 0.4);
+        Pocima p2 = new PocimaSelectivaReductora("Pocima selectiva reductora peso", "peso", 0.1);
+
+        juego.addPocima(p1);
+        juego.addPocima(p2);
         juego.jugar();
 
     }
