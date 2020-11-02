@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Carta {
     private String nombrePersonaje;
     private ArrayList<Atributo> atributos;
+    private Pocima pocima;
 
     public Carta (String nombrePersonaje) {
         this.nombrePersonaje = nombrePersonaje;
@@ -12,21 +13,44 @@ public class Carta {
     public String getNombrePersonaje () {
         return this.nombrePersonaje;
     }
+
     public ArrayList<Atributo> getAtributos () {
         return (ArrayList<Atributo>) this.atributos.clone();
     }
+
     public Atributo getAtributo (int pos) {
         if (pos >= 0 && pos < this.getAtributos().size()) {
             return this.atributos.get(pos);
         }
         return null;
     }
+
     public int getCantidadAtributos () {
         return this.atributos.size();
     }
+
     public void addAtributo (Atributo atr) {
         this.atributos.add(atr);
     }
+
+    public void setPocima (Pocima pocima) {
+        this.pocima = pocima;
+    }
+
+    public void aplicarPocima () {
+        if (this.pocima != null) {
+            this.pocima.cambairValores(this);
+        }
+    }
+
+    public boolean tengoPocima () {
+        return this.pocima != null;
+    }
+
+    public Pocima getPocima () {
+        return this.pocima;
+    }
+
     @Override
     public boolean equals (Object o) {
         try {

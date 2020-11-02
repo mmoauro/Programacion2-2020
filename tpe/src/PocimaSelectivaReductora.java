@@ -1,9 +1,9 @@
-public class PocimaSelectivaAumenta extends Pocima {
-    // Aumenta el valor de un atributo dado en el constructor un % especifico.
+public class PocimaSelectivaReductora extends Pocima {
+    // Disminuye el valor de un atributo dado en el constructor un % especifico.
     private String nombreAtributo;
     private double porcentaje; // Valor entre 0 y 1.
 
-    public PocimaSelectivaAumenta (String nombre, String atr, double porcentaje) {
+    public PocimaSelectivaReductora (String nombre, String atr, double porcentaje) {
         super(nombre);
         this.nombreAtributo = atr;
         this.porcentaje = porcentaje;
@@ -17,7 +17,7 @@ public class PocimaSelectivaAumenta extends Pocima {
             Atributo atr = c.getAtributo(i);
             if (atr.getNombre().equals(this.nombreAtributo)) {
                 double valor = atr.getValor();
-                atr.setValor(valor + valor * this.porcentaje);
+                atr.setValor(valor - valor * this.porcentaje);
             }
         }
     }

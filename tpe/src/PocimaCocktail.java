@@ -1,16 +1,16 @@
-import java.util.ArrayList;
+public class PocimaCocktail extends Pocima {
+    private Pocima p1;
+    private Pocima p2;
 
-public class PocimaCocktail implements Pocima {
-    private ArrayList<Pocima> pocimas;
-
-    public PocimaCocktail (ArrayList<Pocima> pocimas) {
-        this.pocimas = pocimas;
+    public PocimaCocktail (String nombre, Pocima p1, Pocima p2) {
+        super(nombre);
+        this.p1 = p1;
+        this.p2 = p2;
     }
 
     @Override
     public void cambairValores(Carta c) {
-        for (Pocima pocima: this.pocimas) {
-            pocima.cambairValores(c);
-        }
+        this.p1.cambairValores(c);
+        this.p2.cambairValores(c);
     }
 }

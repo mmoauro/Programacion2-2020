@@ -1,8 +1,9 @@
-public class PocimaValorConstante implements Pocima {
+public class PocimaValorConstante extends Pocima {
     // Cambia el valor de todos los atributos en un valor dado en el constructor.
     private double valor; // Valor entre 0 y 1.
 
-    public PocimaValorConstante (double valor) {
+    public PocimaValorConstante (String nombre, double valor) {
+        super(nombre);
         this.valor = valor;
     }
 

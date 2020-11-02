@@ -1,8 +1,9 @@
-public class PocimaFortalecedora implements Pocima {
+public class PocimaFortalecedora extends Pocima {
     // Aumenta el valor de todos los atributos un % especifico.
     private double porcentaje; // Valor entre 0 y 1.
 
-    public PocimaFortalecedora (double porcentaje) {
+    public PocimaFortalecedora (String nombre, double porcentaje) {
+        super(nombre);
         this.porcentaje = porcentaje;
     }
 
