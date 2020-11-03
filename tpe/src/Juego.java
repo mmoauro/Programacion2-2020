@@ -23,7 +23,9 @@ public class Juego {
     private void repartirPocimas() {
         for (Pocima pocima:this.pocimas) {
             int random = (int) (Math.random() * this.mazo.getCantidadCartas());
-            this.mazo.getCarta(random).setPocima(pocima);
+            Carta c = this.mazo.getCarta(random);
+            c.setPocima(pocima);
+            c.aplicarPocima();
         }
     }
 
@@ -35,7 +37,9 @@ public class Juego {
         int atr = this.j1.elegirAtributo();
         Carta c1 = this.j1.getPrimerCarta();
         Carta c2 = this.j2.getPrimerCarta();
-        Jugador ganador = this.getGanador(atr, c1, c2);
+
+        String nombreAtr = c1.getAtributoPorNombre(c1.getAtributo(atr).getNombre()).getNombre();
+        Jugador ganador = this.getGanador(nombreAtr, c1, c2);
         Jugador ultimoGanador = ganador;
         if (ganador == null) {
             ultimoGanador = this.j1;
@@ -43,7 +47,7 @@ public class Juego {
 
         int rondasJugadas = 1;
         this.actualizarCartas(ganador, c1, c2);
-        this.imprimirRonda(rondasJugadas, ultimoGanador, ganador, atr, c1, c2);
+        this.imprimirRonda(rondasJugadas, this.j1, ganador, nombreAtr, c1, c2); // Le paso this.j1 porque es el jugador que eligio el atributo.
 
         while (rondasJugadas < this.cantRondas && this.j1.getCantidadCartas() > 0 && this.j2.getCantidadCartas() > 0) {
             c1 = this.j1.getPrimerCarta();
@@ -58,24 +62,22 @@ public class Juego {
                 // Si empataron
                 atr = ultimoGanador.elegirAtributo();
             }
-            ganador = this.getGanador(atr, c1, c2);
+            nombreAtr = ultimoGanador.getPrimerCarta().getAtributoPorNombre(ultimoGanador.getPrimerCarta().getAtributo(atr).getNombre()).getNombre();
+            ganador = this.getGanador(nombreAtr, c1, c2);
 
             this.actualizarCartas(ganador, c1, c2);
             rondasJugadas++;
-            this.imprimirRonda(rondasJugadas, ultimoGanador, ganador, atr, c1, c2);
+            this.imprimirRonda(rondasJugadas, ultimoGanador, ganador, nombreAtr, c1, c2);
         }
         this.imprimirGanador();
 
     }
 
-    public Jugador getGanador (int atr, Carta c1, Carta c2) {
-        c1.aplicarPocima();
-        c2.aplicarPocima();
-        // El atributo es una posicion en el arreglo de atributos de las cartas de los jugadores.
-        if (c1.getAtributo(atr).getValor() > c2.getAtributo(atr).getValor()) {
+    public Jugador getGanador (String atr, Carta c1, Carta c2) {
+        if (c1.getAtributoPorNombre(atr).getValor() > c2.getAtributoPorNombre(atr).getValor()) {
             return this.j1;
         }
-        else if (c1.getAtributo(atr).getValor() < c2.getAtributo(atr).getValor()) {
+        else if (c1.getAtributoPorNombre(atr).getValor() < c2.getAtributoPorNombre(atr).getValor()) {
             return this.j2;
         }
         else {
@@ -106,16 +108,16 @@ public class Juego {
         }
     }
 
-    public void imprimirRonda (int nRonda, Jugador eligioCarta, Jugador ganador, int atr, Carta c1, Carta c2) {
+    public void imprimirRonda (int nRonda, Jugador eligioCarta, Jugador ganador, String atr, Carta c1, Carta c2) {
         System.out.println("Ronda: " + (nRonda));
-        System.out.println("El jugador " + eligioCarta.getNombre() +" eligio el atributo " + eligioCarta.getPrimerCarta().getAtributo(atr).getNombre());
-        String strJ1 = "La carta de " + this.j1.getNombre() + " es " + c1.getNombrePersonaje() + ", y el valor es: " + c1.getAtributo(atr).getValorInicial() + ".";
-        String strJ2 = "La carta de " + this.j2.getNombre() + " es " + c2.getNombrePersonaje() + ", y el valor es: " + c2.getAtributo(atr).getValorInicial() + ".";
+        System.out.println("El jugador " + eligioCarta.getNombre() +" eligio el atributo " + eligioCarta.getPrimerCarta().getAtributoPorNombre(atr).getNombre());
+        String strJ1 = "La carta de " + this.j1.getNombre() + " es " + c1.getNombrePersonaje() + ", y el valor es: " + c1.getAtributoPorNombre(atr).getValorInicial() + ".";
+        String strJ2 = "La carta de " + this.j2.getNombre() + " es " + c2.getNombrePersonaje() + ", y el valor es: " + c2.getAtributoPorNombre(atr).getValorInicial() + ".";
         if (c1.tengoPocima()) {
-            strJ1+= " Se aplico "+c1.getPocima() +", valor resultante: " + c1.getAtributo(atr).getValor();
+            strJ1+= " Se aplico "+c1.getPocima() +", valor resultante: " + c1.getAtributoPorNombre(atr).getValor();
         }
         if (c2.tengoPocima()) {
-            strJ2 += " Se aplico "+c2.getPocima() +", valor resultante: " + c2.getAtributo(atr).getValor();
+            strJ2 += " Se aplico "+c2.getPocima() +", valor resultante: " + c2.getAtributoPorNombre(atr).getValor();
         }
         System.out.println(strJ1);
         System.out.println(strJ2);

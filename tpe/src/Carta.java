@@ -25,6 +25,14 @@ public class Carta {
         return null;
     }
 
+    public Atributo getAtributoPorNombre (String nombre) {
+        for (Atributo a:this.atributos) {
+            if (a.getNombre().equals(nombre))
+                return a;
+        }
+        return null;
+    }
+
     public int getCantidadAtributos () {
         return this.atributos.size();
     }
