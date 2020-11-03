@@ -25,7 +25,6 @@ public class Juego {
             int random = (int) (Math.random() * this.mazo.getCantidadCartas());
             Carta c = this.mazo.getCarta(random);
             c.setPocima(pocima);
-            c.aplicarPocima();
         }
     }
 
@@ -74,6 +73,8 @@ public class Juego {
     }
 
     public Jugador getGanador (String atr, Carta c1, Carta c2) {
+        c1.aplicarPocima();
+        c2.aplicarPocima();
         if (c1.getAtributoPorNombre(atr).getValor() > c2.getAtributoPorNombre(atr).getValor()) {
             return this.j1;
         }
@@ -119,6 +120,7 @@ public class Juego {
         if (c2.tengoPocima()) {
             strJ2 += " Se aplico "+c2.getPocima() +", valor resultante: " + c2.getAtributoPorNombre(atr).getValor();
         }
+        // Aunque la pocima no afecte al atributo en juego la muestro igual, porque la pocima se aplica de todas formas.
         System.out.println(strJ1);
         System.out.println(strJ2);
         System.out.println(this.j1.getNombre() + " tiene " + this.j1.getCantidadCartas() + " cartas.");
