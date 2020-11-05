@@ -1,0 +1,61 @@
+Como lo pense:
+SIC: Estacionamienos.
+Estacionamiento: Cocheras
+Cochera: Caracteristicas, Automovil, Criterio (Puedo ser alquilada por un auto)
+Automovil: Caracteristicas
+
+
+Para el siguiente problema. reconocer los objetos, su estado y comportamiento, e
+implementar en JAVA
+
+
+El Sistema Integrado de Cocheras (SIC) desea informatizar la distribución de cocheras en
+los diferentes estacionamientos de la ciudad.
+
+El SIC cuenta con un conjunto de cocheras,
+cada una provista con diferentes facilidades (“luz eléctrica”, “seguridad 24 hs”, “agua para
+lavado”, etc).
+
+
+
+Las cocheras de cada estacionamiento se agrupan en diferentes niveles (1er
+piso, 2do pilso, subsueo, etc), quae pueden a su vez gruparse en pabellones y edificios.
+
+No
+necesariamente las cocheras dependen de un nivel particular. Dado el crecimiento del
+parque automotor, puede haber cocheras que dependen de un pabellón o un edificio
+(distribuidas en lugares de uso común).
+
+De cada automóvil se registra su marca, modelo (año), una lista de características y lista de
+facilidades necesarias para su estacionamiento.
+
+Cuando un automóvil arriba a un
+estacionamiento, se debe poder obtener el listado de cocheras disponibles (no deben estar
+ya ocupadas por otro automóvil), que puedan ser ocupadas por el automóvil.
+
+Para que un automóvil pueda ocupar una cochera, debe cumplir con ciertos requerimientos
+que dependen de qué cochera se trate. Un cochera podrá ser ocupada por un determinado
+automóvil dependiendo de diferentes factores:
+
+● Que el automóvil no requiera como facilidad de la cochera “seguridad 24 hs”.
+● Que el automóvil sea modelo anterior a 2008.
+● Que el automóvil no posea entre sus características “descapotable” o “3 puertas”.
+● Que el automóvil sea modelo posterior a 2015.
+● Que el automóvil posea entre sus características “alarma centralizada”.
+● Cualquier variación de los factores anteriores o combinación de los mismos (por
+ejemplo, que sea modelo posterior a 2001 y anterior a 2011 o no tenga entre sus
+características “llantas de aleación”.
+
+
+El SIC debe ser capaz de informar el total de cocheras en el sistema y obtener una copia
+de todos los elementos (respetando la estructura organizativa) pero restringida a las
+cocheras ocupadas por determinados automóviles.
+
+Por ejemplo, conservar sólo las
+cocheras ocupadas por automóviles cuyo modelo es posterior a 2015 o solo las cocheras
+con automóviles con “llantas de aleación” entre sus características (estos son solo algunos
+ejemplos posibles).
+
+Si un elemento de su estructura no posee cocheras con automóviles de
+las características dadas, no se incluye en la copia de este elemento.
+Tener en cuenta todos los conceptos vistos durante el desarrollo de la materia.

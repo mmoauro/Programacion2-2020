@@ -1,3 +1,3 @@
 public interface Estrategia {
-    int getAtributo (Carta c);
+    String getAtributo (Carta c);
 }

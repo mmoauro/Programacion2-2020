@@ -9,8 +9,10 @@ public class PocimaCocktail extends Pocima {
     }
 
     @Override
-    public void cambairValores(Carta c) {
-        this.p1.cambairValores(c);
-        this.p2.cambairValores(c);
+    public double getValorAtributo(Atributo atr) {
+        double valor = p1.getValorAtributo(atr);
+        Atributo a = new Atributo(atr.getNombre(), valor);
+        valor = p2.getValorAtributo(a);
+        return valor;
     }
 }

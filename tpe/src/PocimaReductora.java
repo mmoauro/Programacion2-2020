@@ -8,14 +8,10 @@ public class PocimaReductora extends Pocima {
     }
 
     @Override
-    public void cambairValores(Carta c) {
-        int cantidad = c.getCantidadAtributos();
-
-        for (int i = 0; i < cantidad; i++) {
-            Atributo atr = c.getAtributo(i);
-            atr.setValor(atr.getValor() - atr.getValor() * this.porcentaje);
-        }
+    public double getValorAtributo (Atributo atr) {
+        return atr.getValor() - atr.getValor() * this.porcentaje;
     }
+
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = porcentaje;
     }

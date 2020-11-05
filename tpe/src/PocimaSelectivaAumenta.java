@@ -10,16 +10,10 @@ public class PocimaSelectivaAumenta extends Pocima {
     }
 
     @Override
-    public void cambairValores(Carta c) {
-        int cantidad = c.getCantidadAtributos();
-
-        for (int i = 0; i < cantidad; i++) {
-            Atributo atr = c.getAtributo(i);
-            if (atr.getNombre().equals(this.nombreAtributo)) {
-                double valor = atr.getValor();
-                atr.setValor(valor + valor * this.porcentaje);
-            }
-        }
+    public double getValorAtributo (Atributo atr) {
+        if (atr.getNombre().equals(this.nombreAtributo))
+            return atr.getValor() + atr.getValor() * this.porcentaje;
+        return atr.getValor();
     }
     public void setAtributo (String nombre) {
         this.nombreAtributo = nombre;

@@ -33,9 +33,8 @@ public class Jugador {
         this.estrategia = estrategia;
     }
 
-    public int elegirAtributo () {
+    public String elegirAtributo () {
         return this.estrategia.getAtributo(this.getPrimerCarta());
         // Devuelve algun atributo
-        // carta.getAtributo(este metodo).valor. Para j1 y j2.
     }
 }

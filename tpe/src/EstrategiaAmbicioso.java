@@ -3,16 +3,17 @@ import java.util.ArrayList;
 public class EstrategiaAmbicioso implements Estrategia {
 
     @Override
-    public int getAtributo(Carta c) {
+    public String getAtributo(Carta c) {
         ArrayList<Atributo> atributos = c.getAtributos();
-        int max = 0;
+        String nombre = "";
         double valor = 0;
         for (int i = 0; i < atributos.size(); i++) {
-            if (atributos.get(i).getValor() > valor) {
-                max = i;
+            Atributo a = atributos.get(i);
+            if (a.getValor() > valor) {
+                nombre = a.getNombre();
                 valor = atributos.get(i).getValor();
             }
         }
-        return max;
+        return nombre;
     }
 }

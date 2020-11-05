@@ -18,23 +18,12 @@ public class Carta {
         return (ArrayList<Atributo>) this.atributos.clone();
     }
 
-    public Atributo getAtributo (int pos) {
-        if (pos >= 0 && pos < this.getAtributos().size()) {
-            return this.atributos.get(pos);
-        }
-        return null;
-    }
-
     public Atributo getAtributoPorNombre (String nombre) {
         for (Atributo a:this.atributos) {
             if (a.getNombre().equals(nombre))
                 return a;
         }
         return null;
-    }
-
-    public int getCantidadAtributos () {
-        return this.atributos.size();
     }
 
     public void addAtributo (Atributo atr) {
@@ -45,10 +34,15 @@ public class Carta {
         this.pocima = pocima;
     }
 
-    public void aplicarPocima () {
-        if (this.pocima != null) {
-            this.pocima.cambairValores(this);
-        }
+    public double getValorAtributoPocima (String atributo) {
+        Atributo a = this.getAtributoPorNombre(atributo);
+        if (this.tengoPocima())
+            return this.pocima.getValorAtributo(a);
+        return a.getValor();
+    }
+
+    public double getValorInicialAtributo (String atr) {
+        return this.getAtributoPorNombre(atr).getValor();
     }
 
     public boolean tengoPocima () {

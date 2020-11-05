@@ -5,7 +5,7 @@ public abstract class Pocima {
         this.nombre = nombre;
     }
 
-    public abstract void cambairValores (Carta c);
+    public abstract double getValorAtributo (Atributo atr);
 
     public String toString () {
         return this.nombre;

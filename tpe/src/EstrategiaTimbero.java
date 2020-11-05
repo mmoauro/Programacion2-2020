@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+
 public class EstrategiaTimbero implements Estrategia {
 
     @Override
-    public int getAtributo(Carta c) {
-        return (int) (Math.random()*c.getAtributos().size());
+    public String getAtributo(Carta c) {
+        ArrayList<Atributo> atributos = c.getAtributos();
+        int random = (int) (Math.random()*atributos.size());
+        return atributos.get(random).getNombre();
     }
 }

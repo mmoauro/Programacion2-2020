@@ -6,7 +6,7 @@ public class Main {
         String mazoPath = "tpe/autos.json";
         Mazo m1 = new Mazo();
         m1.cargarMazo(mazoPath);
-        j1.setEstrategia(new EstrategiaObstinado("cmd3"));
+        j1.setEstrategia(new EstrategiaAmbicioso());
 
         Juego juego = new Juego(m1, j1, j2, 10);
 
@@ -22,11 +22,8 @@ public class Main {
         Pocima p7 = new PocimaSelectivaAumenta("Pocima selectiva aumenta RPM", "RPM", 0.7);
         Pocima p8 = new PocimaSelectivaAumenta("Pocima selectiva aumenta cm3", "cm3", 0.1);
 
-        Pocima p9 = new PocimaSelectivaReductora("Pocima selectiva reductora cm3", "cm3", 0.2);
-        Pocima p10 = new PocimaSelectivaReductora("Pocima selectiva reductora RPM", "RPM", 0.6);
-
-        Pocima p11 = new PocimaCocktail("Pocima cocktail a", p7, p8);
-        Pocima p12 = new PocimaCocktail("Pocima cocktail b", p8, p6);
+        Pocima p9 = new PocimaCocktail("Pocima cocktail a", p7, p8);
+        Pocima p10 = new PocimaCocktail("Pocima cocktail b", p6, p8);
 
         juego.addPocima(p1);
         juego.addPocima(p2);
@@ -38,8 +35,6 @@ public class Main {
         juego.addPocima(p8);
         juego.addPocima(p9);
         juego.addPocima(p10);
-        juego.addPocima(p11);
-        juego.addPocima(p12);
         juego.jugar();
 
     }
